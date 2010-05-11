@@ -1,0 +1,25 @@
+inherit java
+
+DESCRIPTION="Java implementation of Tcl language interpreter"
+HOMEPAGE="http://tcljava.sourceforge.net/"
+SRC_URI="mirror://sourceforge/tcljava/${PN}${PV}.tar.gz"
+SRC_DIR=${PN}${PV}
+
+PATCH_URI="1.4.1-cygwin.patch"
+
+src_compile() {
+	cd ${S}
+	autoconf -f
+	cd ${B}
+	cygconf --enable-jacl
+	cygmake -j1
+}
+
+src_install() {
+	cd ${B}
+	exeinto /usr/lib
+	doexe tcljavaConfig.sh
+	dojar itcl.jar jacl.jar janino.jar tcljava.jar tjc.jar
+	java_wrapper jaclsh tcljava.jar:jacl.jar:itcl.jar tcl.lang.Shell
+	java_wrapper tjc tcljava.jar:jacl.jar:itcl.jar:janino.jar:tjc.jar tcl.lang.TJCShell
+}

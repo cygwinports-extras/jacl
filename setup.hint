@@ -1,0 +1,8 @@
+category: Interpreters Java Tcl
+requires: jamvm
+sdesc: "Java implementation of Tcl"
+ldesc: "Jacl is a self-contained implementation of a Tcl interpreter, 
+written entirely in Java. Jacl also includes features that facilitate 
+communication between a Java interpreter and a Tcl interpreter. Jacl is 
+typically used to incorporate scripting functionality into an existing 
+Java application."

@@ -1,0 +1,13 @@
+tcl.m4 would also need to be fixed for tclblend but is unused in jacl
+
+--- origsrc/jacl1.4.1/tcljava.m4	2010-05-10 23:08:19.933545300 -0500
++++ src/jacl1.4.1/tcljava.m4	2010-05-10 23:31:01.880444200 -0500
+@@ -140,7 +140,7 @@ AC_DEFUN([TCLJAVA_ENABLE_JACL_OR_TCLBLEN
+ 
+     if test "$TCLJAVA" = "jacl"; then
+         case "`uname -s`" in
+-	    *MINGW* | *win32* | *WIN32* | *CYGWIN_NT* |*CYGWIN_98*|*CYGWIN_95*)
++	    *MINGW* | *win32* | *WIN32* )
+                 ac_cv_tcl_win32="yes"
+                 ;;
+             *)
